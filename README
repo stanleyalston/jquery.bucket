@@ -1,1 +1,19 @@
-A simple C# asp.net project that highlights an item bucket via jquery. This utilizes a similar concept with a shopping cart mechanism.
+A simple shopping cart mechanism implemented via Jquery and Asp.Net. 
+
+Initially, this plugin captures all selected items in an HTML element. Once the compare button is clicked, all items in the cart will be relayed to the identified service page. 
+
+Below is the upfront usage:
+
+$("#container").bucket({
+	container: "container",
+	compareButton: "compare-button",
+	clearButton: "clear-all",
+	checkBoxClass: "class-compare",
+	checkBoxId: "check-compare-index",
+	recordLength: 5,
+	servicePage: "service.aspx",
+	receiverPage: "receiver.aspx"
+});
+
+Please see Default.aspx for further info on how to implement this plugin.
+

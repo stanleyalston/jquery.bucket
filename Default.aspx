@@ -11,11 +11,14 @@
     <script>
         $(function () {
             $("#container").bucket({
-                contaner: "container",
+                container: "container",
                 compareButton: "compare-button",
                 clearButton: "clear-all",
-                checkBoxClass: "check-compare",
-                recordLength: 5
+                checkBoxClass: "class-compare",
+		checkBoxId: "check-compare-index",
+                recordLength: 5,
+		servicePage: "service.aspx",
+		receiverPage: "receiver.aspx"
             });
         });
     </script>  
@@ -25,22 +28,22 @@
     <div id="compare-button">Compare</div>
     <div id="clear-all">Clear</div><br /><br />
         
-	<input type="checkbox" rel="compare" class="check-compare" 
+	<input type="checkbox" rel="compare" class="class-compare" 
 	value="field11|field12|field13|field14|2331" id="check-compare-index-2331"/>Compare          
 		
 	<br/>
 		
-	<input type="checkbox" rel="compare" class="check-compare" 
+	<input type="checkbox" rel="compare" class="class-compare" 
 	value="field21|field22|field23|field24|2332" id="check-compare-index-2332"/>Compare          
 		
 	<br/>
 		
-	<input type="checkbox" rel="compare" class="check-compare" 
+	<input type="checkbox" rel="compare" class="class-compare" 
 	value="field31|field32|field33|field34|2333" id="check-compare-index-2333"/>Compare          
 		
 	<br/>
 		
-	<input type="checkbox" rel="compare" class="check-compare" 
+	<input type="checkbox" rel="compare" class="class-compare" 
 	value="field41|field42|field43|field44|2334" id="check-compare-index-2334"/>Compare          
 		
 	<br/>		

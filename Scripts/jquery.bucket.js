@@ -4,10 +4,13 @@
         var compareButton = '#' + options.compareButton;
         var clearButton = '#' + options.clearButton;
         var checkBoxClass = '.' + options.checkBoxClass;
+		var checkBoxId = '#' + options.checkBoxId + '-';
         var recordLength = options.recordLength;
+		var servicePage = options.servicePage;
+		var receiverPage = options.receiverPage;
 
         //toggle adding and removing of car in bucket
-        $(checkboxClass + '[rel="compare"]').live("click", function () {
+        $(checkBoxClass + '[rel="compare"]').live("click", function () {
             var data = $(this).attr("value");
             var record = data.split('|');
 
@@ -29,10 +32,12 @@
 
         //remove item from bucket using delete link
         $('#delete-comparison[rel="delete"]').live('click', function (e) {
-            e.preventDefault();
-            var id = $(this).attr("value");
+            e.preventDefault();          
+
+	    var id = $(this).attr("value");	    
+
             $("#compared-index-" + id).remove();
-            $("#check-compare-index-" + id).attr("checked", false);
+            $(checkBoxId + id).attr("checked", false);	    
         });
 
         //compare button
@@ -42,14 +47,17 @@
                 a += $(this).attr("value") + "|"
             });
 
-            invokeService("type=compare&data=" + a, true);
+            invokeService("type=compare&data=" + a, true, servicePage, receiverPage);
         });
 
         //clear button
         $(clearButton).click(function () {
             $(container).empty();
             $(checkBoxClass + '[rel="compare"]').attr("checked", false);
-            invokeService("type=clearall", false);
+            
+			if($(container).text() != ""){
+				invokeService("type=clearall", false, servicePage, null);
+			}
         });
     };
 
